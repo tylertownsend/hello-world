@@ -38,3 +38,21 @@ Execute your MPI program with mpirun:
 mpirun -np <number_of_processes> ./your_program
 ```
 Replace <number_of_processes> with the desired number of processes.
+
+# Debugging
+Use gdb to debug your application. You can run mpirun with xterm and gdb to debug MPI programs:
+```sh
+mpirun -np <num_procs> xterm -e gdb --args ./your_program
+```
+
+Employ valgrind to detect memory leaks and errors:
+```sh
+mpirun -np <num_procs> valgrind ./your_program
+```
+
+X11 Errors:
+If you're running this in an environment where you're interacting with X11 windows, make sure your display variable is set correctly:
+```sh
+echo $DISPLAY
+```
+If it's not set or you're running on a headless server without an X server, you'll need to address the X11 issue separately.
