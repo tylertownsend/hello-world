@@ -54,4 +54,3 @@ Then compile both the lexer and the parser with GCC (or your chosen compiler):
 ```sh
 gcc -o simple_lang simple_lang.tab.c lex.yy.c -lfl
 ```
-If you're not using Flex's library, you can omit -lfl.
