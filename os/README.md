@@ -23,6 +23,12 @@ To initialize a new Vagrant project with a Vagrantfile:
 ```shell
 vagrant init ubuntu/focal64
 ```
+
+Add guest additions
+```shell
+vagrant plugin install vagrant-vbguest
+```
+
 Starting a Vagrant Box
 To start and provision the Vagrant environment:
 

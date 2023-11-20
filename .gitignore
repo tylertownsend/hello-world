@@ -10,6 +10,11 @@ target/
 
 ### begin os
 .vagrant/
+*.swp
+*.bin
+*.img
+*.iso
+
 ### end os
 
 ### begin c++
