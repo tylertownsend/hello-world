@@ -1,69 +1,37 @@
 # Development Environment
-## Getting Started with Vagrant
+## Setup
+This guide provides instructions on how to install QEMU and set up your environment to run a bootloader for your operating system development.
 
-Vagrant is an open-source software product for building and maintaining portable virtual software development environments. It can be used on various operating systems like macOS, Windows, and Linux.
+### Installing QEMU
 
-### Prerequisites
+QEMU is a generic and open-source machine emulator and virtualizer. Follow these instructions to install QEMU on your system:
 
-- Install [VirtualBox](https://www.virtualbox.org/)
-- Install [Vagrant](https://www.vagrantup.com/downloads)
+#### For Ubuntu/Debian-based Linux Distributions:
 
-### Basic Vagrant Commands
+Run the following command in your terminal:
 
-#### Adding a Box
-
-A "box" is a package format for Vagrant environments. To add a box from Vagrant Cloud:
-
-```shell
-vagrant box add ubuntu/focal64
-```
-Initializing a Project
-To initialize a new Vagrant project with a Vagrantfile:
-
-```shell
-vagrant init ubuntu/focal64
+```bash
+sudo apt-get update
+sudo apt-get install qemu
 ```
 
-Add guest additions
-```shell
-vagrant plugin install vagrant-vbguest
+### Compile Bootloader
+```bash
+nasm -f bin -o bootloader.bin bootloader.asm
 ```
 
-Starting a Vagrant Box
-To start and provision the Vagrant environment:
-
-```shell
-vagrant up
+### Create Bootable CD-ROM Image
 ```
-SSH into the Box
-To connect to your box via SSH:
-
-```shell
-vagrant ssh
+mkisofs -no-emul-boot -boot-load-size 4 -boot-info-table \
+-o bootable.iso -b bootloader.bin .
 ```
-Stopping a Vagrant Box
-To suspend your virtual machine, saving its current state:
 
-```shell
-vagrant suspend
+### Running QEMU
+```bash
+qemu-system-x86_64 -cdrom bootable.iso
 ```
-To shut down the virtual machine:
+Observation: When QEMU runs, it will execute the bootloader code. You should see the results of your bootloader code on the QEMU screen. If you've set up any output or status messages in your bootloader, they should appear here.
 
-```shell
-vagrant halt
-```
-### Destroying a Vagrant Box
-To completely remove the virtual machine:
+Debugging: If the bootloader doesn't work as expected, you may need to debug it. One common method is to use QEMU's built-in monitor. You can access the monitor by pressing Ctrl-Alt-2 when running QEMU. To return to the emulation, press Ctrl-Alt-1.
 
-```shell
-vagrant destroy
-```
-## Synced Folders
-By default, Vagrant will share your project directory (where the Vagrantfile is located) to the /vagrant directory in your virtual machine.
-
-## Networking
-You can configure network settings to access your Vagrant machine through your host machine.
-
-## Provisioning
-Vagrant can automatically install software, alter configurations, and more on the machine upon vagrant up or vagrant reload.
-
+Iterating: Development often requires an iterative process. Make changes to your bootloader code, recompile, recreate the bootable image, and test again with QEMU.

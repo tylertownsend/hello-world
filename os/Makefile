@@ -1,33 +1,31 @@
-# Makefile for building a simple bootloader and testing with QEMU
+# Makefile for creating a CD-ROM bootloader and testing it with QEMU
 
-# Compiler and QEMU settings
-ASM=nasm
-QEMU=qemu-system-x86_64
+# The name of the bootloader source file
+BOOTLOADER_SRC := bootloader.asm
+# The name of the binary bootloader file
+BOOTLOADER_BIN := bootloader.bin
+# The name of the CD-ROM image
+CDROM_IMG := bootable.iso
 
-# Bootloader and image file names
-BOOTLOADER_SRC=bootloader.asm
-BOOTLOADER_BIN=bootloader.bin
-FLOPPY_IMG=floppy.img
-
-# Phony targets for make
-.PHONY: all clean run
-
-# Default target
-all: $(FLOPPY_IMG)
+# The default 'make' target
+all: $(CDROM_IMG)
 
 # How to build the bootloader binary
 $(BOOTLOADER_BIN): $(BOOTLOADER_SRC)
-	$(ASM) -f bin -o $(BOOTLOADER_BIN) $(BOOTLOADER_SRC)
+	nasm -f bin -o $@ $<
 
-# How to create the floppy image and write the bootloader to it
-$(FLOPPY_IMG): $(BOOTLOADER_BIN)
-	dd if=/dev/zero of=$(FLOPPY_IMG) bs=1024 count=1440
-	dd if=$(BOOTLOADER_BIN) of=$(FLOPPY_IMG) seek=0 count=1 conv=notrunc
+# How to create a CD-ROM ISO image
+$(CDROM_IMG): $(BOOTLOADER_BIN)
+	mkisofs -no-emul-boot -boot-load-size 4 -boot-info-table \
+	-o $@ -b $< .
 
-# Target to run the image in QEMU
-run: $(FLOPPY_IMG)
-	$(QEMU) -fda $(FLOPPY_IMG)
+# How to run QEMU with the CD-ROM image
+qemu: $(CDROM_IMG)
+	qemu-system-x86_64 -cdrom $<
 
-# Clean the workspace
+# This target cleans up the compiled files
 clean:
-	rm -f $(BOOTLOADER_BIN) $(FLOPPY_IMG)
+	rm -f $(BOOTLOADER_BIN) $(CDROM_IMG)
+
+# Declare 'clean' as a phony target to ensure it always runs when called
+.PHONY: all qemu clean
