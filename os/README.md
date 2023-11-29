@@ -1,4 +1,5 @@
 # Development Environment
+Development will use a docker image to build the code and qemu to run the image.
 ## Setup
 This guide provides instructions on how to install QEMU and set up your environment to run a bootloader for your operating system development.
 
@@ -35,3 +36,7 @@ Observation: When QEMU runs, it will execute the bootloader code. You should see
 Debugging: If the bootloader doesn't work as expected, you may need to debug it. One common method is to use QEMU's built-in monitor. You can access the monitor by pressing Ctrl-Alt-2 when running QEMU. To return to the emulation, press Ctrl-Alt-1.
 
 Iterating: Development often requires an iterative process. Make changes to your bootloader code, recompile, recreate the bootable image, and test again with QEMU.
+
+## Docker
+
+Run `buildenv/setup.sh`
