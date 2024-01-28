@@ -26,19 +26,29 @@ check_multiboot:
 	mov al, "M"
 	jmp error
 
+
+; CPUID is supported when the ID-bit in the FLAGS-register can be flipped
+; https://wiki.osdev.org/Setting_Up_Long_Mode#Detecting_the_Presence_of_Long_Mode
 check_cpuid:
+  ; cpy flags inn to eax via stack
 	pushfd
 	pop eax
-	mov ecx, eax
-	xor eax, 1 << 21
-	push eax
+
+	mov ecx, eax     ; copy to ecx as well for comparing later on
+
+	xor eax, 1 << 21 ; flip the id bit;
+
+	push eax         ; copy eax to flags via stack
 	popfd
-	pushfd
+
+	pushfd           ; copy flags tback to eax (with the flipped bit if cpuid is supported)
 	pop eax
-	push ecx
+
+	push ecx         ; restore flags from old version stored in ecx
 	popfd
-	cmp eax, ecx
-	je .no_cpuid
+
+	cmp eax, ecx     ; compare eax and ecx.
+	je .no_cpuid     ; if they are equal then bit wasn't flipped
 	ret
 .no_cpuid:
 	mov al, "C"

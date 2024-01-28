@@ -29,23 +29,6 @@ The bootloader is a critical component that initializes the system and loads the
 4. **GRUB Configuration (`grub.cfg`)**:
    - Configures GRUB to load the kernel with Multiboot 2 protocol.
 
-## Memory Allocation
-
-### Stack Allocation
-
-- **Purpose**: Used for managing function calls and local variables.
-- **Initialization**: Set up very early, typically in the bootloader or initial assembly code.
-- **Functionality**: Automatically handles saving return addresses and local variables during function calls.
-- **Implementation**: Involves setting the stack pointer to a fixed-size memory area.
-
-### Heap Allocation
-
-- **Purpose**: Provides dynamic memory allocation during runtime.
-- **Implementation**: Requires developing a memory allocator (e.g., for `malloc` and `free` functionality).
-- **Initialization**: Set up after basic kernel services, such as memory management.
-- **Functionality**: Manages dynamic memory requests, including allocation and deallocation.
-- **Considerations**: Involves handling fragmentation and synchronization in multitasking environments.
-
 ## Testing and Debugging
 
 - **QEMU**: Utilized for testing the kernel in a virtualized environment.
@@ -56,41 +39,95 @@ The bootloader is a critical component that initializes the system and loads the
 ## Setup
 Bootloader Assembly Code: The first snippet is an assembly program. It's the actual bootloader that runs when the system starts. This code is written for a 32-bit processor (bits 32). It prints "OK" to the screen by directly writing to the video memory (address 0xb8000). After displaying the message, it halts the CPU (hlt instruction).
 
-Multiboot Header: This is a special header required by the GRUB bootloader to recognize your kernel. It includes the magic number (0xe85250d6), the target architecture (32-bit mode), the header length, and a checksum. The end tag indicates the end of the header.
+### GRUB Bootloader Configuration (`grub.cfg`)
 
-Linker Script (linked.ld): This script tells the linker how to assemble the different parts of your kernel. It sets the starting address of the kernel to 1MB (.=1M;), includes the multiboot header, and then the actual code (.text section). The ENTRY(start) directive sets the entry point of the kernel to the start label in your assembly code.
+- Sets a boot entry named "buffalo" to load the kernel from `/boot/kernel.bin`.
+- Utilizes the `multiboot2` command for Multiboot version 2 compliance.
 
-GRUB Configuration (grub.cfg): This configuration is for the GRUB bootloader. It specifies a menu entry named "buffalo" that loads your kernel (/boot/kernel.bin) using the Multiboot 2 protocol.
+### Linker Script
 
-Makefile: This is a build script for your kernel. It finds all assembly source files, compiles them into object files, links them using your linker script, and then creates a bootable ISO image using grub-mkrescue
+- Organizes the kernel layout in memory, starting at 1MB.
+- The `.boot` section includes the Multiboot header.
+- The `.text` section contains the kernel code.
 
-### Memory
-1. Stack Memory Allocation
-Initialization: In most cases, the stack is set up very early in the boot process, often in the bootloader or in the initial assembly code before handing control over to the main kernel written in C or C++.
-Setting Up: The stack is typically a fixed-size area of memory. You set the stack pointer (SP or ESP register on x86 architectures) to the top of this area. The size of the stack should be chosen carefully to balance between using too much memory and risking a stack overflow.
-Usage: The stack is used automatically by the CPU when calling functions (to store return addresses and local variables). You usually don't need to manually manage stack memory in your kernel code.
-2. Heap Memory Allocation
-Implementation: Implementing heap memory management is more involved. You need to write (or port) a memory allocator, which can handle dynamic memory requests (like malloc and free in C).
-Setting Up the Heap: Choose a region of memory to be your heap. It's common to start the heap at the end of the kernel and let it grow upwards.
-Allocator Algorithm: You need an algorithm to allocate and free memory blocks. Common algorithms include buddy system, slab allocator, and binary buddy system.
-Considerations: Keep in mind that managing a heap requires handling fragmentation, allocation efficiency, and synchronization in a multitasking environment.
-Integration in Your Kernel
-To integrate these in your kernel, you'll need to modify your boot process and kernel code.
-Stack: Modify your bootloader or initial assembly code to set up the stack pointer. This is often just a few lines of code.
-Heap: Write or integrate a memory allocator into your kernel. This is usually done after setting up basic kernel services like memory management.
+### Multiboot Header
+
+- Contains the necessary elements for Multiboot2 compliance, including the magic number, architecture, header length, and checksum.
+
+### `main64.asm`: Transition to 64-bit Mode
+
+- `long_mode_start`: Entry point for 64-bit operations.
+- Clears all segment registers and transitions the CPU to 64-bit long mode.
+- Calls the kernel's main function (`__kernel_main__`).
+
+### Overall Boot Process
+
+1. **GRUB Loading**: Loads the kernel as per the configuration in `grub.cfg`.
+2. **Multiboot Header Recognition**: GRUB validates the Multiboot header.
+3. **Transition to Protected Mode**: GRUB sets up the environment for the kernel.
+4. **Kernel Loading**: The kernel is loaded into memory at 1MB.
+5. **Entering Long Mode**: The assembly code executes to transition to long mode.
+6. **Kernel Execution**: Control is handed to the kernel's main function.
 
 
-## Stack
-Setting up the stack very early in the boot process, often in the bootloader or initial assembly code, is crucial for several reasons:
 
-Function Calls and Local Variables: The stack is used for managing function calls and local variables. As soon as the control is transferred to a piece of code that might call functions or use local variables (which is almost any C or C++ code), a stack needs to be available. Without a stack, even the simplest function calls or local variable assignments would fail, leading to unpredictable behavior or a system crash.
+## Detailed Explanation of Assembly Code for Transitioning to Long Mode
 
-Consistency and Control: Setting up the stack early ensures that you have a known, consistent state of the stack when your higher-level kernel code starts executing. This is important for debugging and reliability, as it removes uncertainties about the state of the system when the main kernel code begins execution.
+This assembly code is designed to transition a 32-bit x86 CPU into 64-bit long mode, a crucial step for modern 64-bit operating systems. The code is organized into several sections, each with specific functions and purposes.
 
-Interrupt Handling: The CPU uses the stack to store return addresses and register values when an interrupt occurs. Since interrupts can be triggered at almost any time, including during the early stages of booting, a stack must be available to handle these interrupts properly.
+### Global and External Declarations
 
-Bootloader to Kernel Handoff: The transition from the bootloader to the kernel is a critical phase. The bootloader prepares the environment for the kernel, which includes setting up essential hardware and memory structures like the stack. Once the kernel starts, it assumes that these structures are already in place and operational.
+- `global start`: This directive makes the `start` label globally visible, indicating the entry point of the program to the linker.
+- `extern long_mode_start`: This declares an external label `long_mode_start`, which is defined elsewhere, likely marking the entry point for 64-bit operations.
 
-Simplicity and Reliability: Setting up the stack is relatively simple compared to other initialization tasks, but its presence is vital. Doing this early avoids complex scenarios where part of the system is initialized but can't reliably call functions or handle interrupts.
+### Section .text: Executable Code
 
-Architecture Requirements: On many architectures, including x86, the stack is an integral part of the CPU's functioning for managing function calls, interrupts, and exceptions. The CPU automatically uses the stack pointer (SP or ESP) for various operations, so it must point to a valid memory area as soon as possible.
+This section contains the actual executable instructions of the program.
+
+#### Boot and Initial Setup
+
+- `start:`: Marks the beginning of the program.
+- `mov esp, stack_top`: Initializes the stack pointer (`esp`) to the top of the stack. The stack is essential for function calls, local variables, and interrupt handling.
+
+Several function calls perform critical checks and setups:
+
+- `check_multiboot`: Verifies if the system was booted using a Multiboot-compliant bootloader, which is necessary for certain boot-time configurations.
+- `check_cpuid`: Checks if the CPU supports the CPUID instruction, essential for identifying processor capabilities.
+- `check_long_mode`: Ensures the processor supports 64-bit long mode.
+- `setup_page_tables`: Initializes minimal page tables for paging, a prerequisite for long mode.
+- `enable_paging`: Enables paging, crucial for memory management in long mode.
+
+#### Transition to Long Mode
+
+- `lgdt [gdt64.pointer]`: Loads the Global Descriptor Table (GDT), necessary for segment descriptor definitions in protected mode.
+- `jmp gdt64.code_segment:long_mode_start`: A far jump that switches the CPU to a 64-bit code segment and begins executing 64-bit code.
+
+#### Error Handling
+
+- The `check_*` functions set an error code and jump to the `error` label upon failure, ensuring that the system doesn't proceed with incompatible configurations.
+- The `error` label contains code to display an error message and halt, preventing further execution.
+
+### Section .bss: Uninitialized Data
+
+This section reserves space for data structures needed during boot:
+
+- `page_table_l4`, `page_table_l3`, `page_table_l2`: Space for Level 4, Level 3, and Level 2 page tables, part of the paging structure.
+- `stack_bottom`, `stack_top`: Allocate space for the stack, critical for holding temporary data and managing function calls.
+
+### Section .rodata: Read-Only Data
+
+- `gdt64`: This defines the Global Descriptor Table (GDT), which is a data structure used in protected mode (32-bit) to define the characteristics of the various memory areas used during program execution, such as the base address, the size, and access privileges like executability and writability. Despite 64-bit mode (long mode) not relying on segment-based memory management as heavily as 32-bit mode, the GDT is still necessary during the transition phase from protected mode to long mode. The CPU requires a valid GDT even in long mode, although it's used differently
+
+### Specific Assembly Instructions
+
+The code uses various assembly instructions (`mov`, `cmp`, `jmp`, `or`, `cpuid`, `rdmsr`, `wrmsr`, etc.) for data manipulation, flow control, and system configuration.
+
+### Why Use Paging?
+
+Paging is a memory management scheme that eliminates the need for contiguous allocation of physical memory. It allows the system to use a memory efficiently and is essential for modern operating systems for several reasons:
+
+1. **Support for Long Mode**: Long mode operation on x86-64 architectures requires paging to be enabled. It's not just a preference but a technical requirement.
+   
+2. **Memory Protection**: Paging allows the operating system to protect and isolate different processes' memory, enhancing system stability and security.
+
+3. **Virtual Memory**: It enables the use of virtual memory, allowing systems to use more memory than physically available by swapping to disk.

@@ -1,5 +1,10 @@
 #include "print.h"
 
+// The easiest way to print text to the screen at this stage is the VGA text buffer.
+// It is a special memory area mapped to the VGA hardware that contains the contents
+// displayed on screen.
+// It normally consists of 25 lines that each contain 80 character cells.
+// Each character cell displays an ASCII character with some foreground and background colors.
 const static size_t NUM_COLS = 80;
 const static size_t NUM_ROWS = 25;
 
@@ -8,6 +13,7 @@ struct Char {
   uint8_t color;
 };
 
+// location of buffer
 struct Char* buffer = (struct Char*) 0xb8000;
 size_t col = 0;
 size_t row = 0;
