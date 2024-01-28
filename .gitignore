@@ -54,3 +54,8 @@ target/
 # Build Directories
 **/build/
 ### end c++
+#
+#
+# start C#
+**/obj/
+**/bin/
