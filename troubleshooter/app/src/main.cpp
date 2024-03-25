@@ -13,7 +13,8 @@ int main() {
     DiagnosticSystem.add(std::make_unique<DependencyChecker>());
     DiagnosticSystem.add(std::make_unique<ConfigurationChecker>());
 
-    PluginLoader pluginLoader("./plugins");
+    // PluginLoader pluginLoader("./build/plugin"); // if running debugger in vscode
+    PluginLoader pluginLoader("./plugin"); // if running from cli
     pluginLoader.loadPlugins(DiagnosticSystem);
 
     DiagnosticSystem.runDiagnostics();

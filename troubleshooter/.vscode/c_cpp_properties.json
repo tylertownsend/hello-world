@@ -4,8 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include/troubleshooter/**",
-                "${workspaceFolder}/src/**"
+                "${workspaceFolder}/api/include/troubleshooter/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

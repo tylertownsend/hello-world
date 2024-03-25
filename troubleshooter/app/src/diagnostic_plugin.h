@@ -10,7 +10,10 @@ private:
     void* handle;
     IDiagnostic* (*create)();
     void (*destroy)(IDiagnostic*);
+
     std::string name;
+    IDiagnostic* plugin;
+
 
 public:
     DiagnosticPlugin(const std::string& path) : handle(nullptr), create(nullptr), destroy(nullptr) {
@@ -26,9 +29,9 @@ public:
         if (!create || !destroy) {
             std::cerr << "Cannot load symbols: " << dlerror() << '\n';
         } else {
-            IDiagnostic* plugin = create();
+          std::cout << "Created Plugin\n";
+            plugin = create();
             name = plugin->getName();
-            destroy(plugin);
         }
     }
 
@@ -49,15 +52,19 @@ public:
         }
 
         if (config.enabled) {
-            IDiagnostic* plugin = create();
             plugin->check(config);
-            destroy(plugin);
         }
     }
 
     ~DiagnosticPlugin() {
-        if (handle) {
-            dlclose(handle);
-        }
+      if (destroy) {
+        destroy(plugin);
+        std::cout << "Destroyed Plugin\n";
+      }
+
+      if (handle) {
+        std::cout << "Closing Handle\n";
+          dlclose(handle);
+      }
     }
 };

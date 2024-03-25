@@ -8,7 +8,7 @@
         "name": "Debug Main Program",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceRoot}/build/main",
+        "program": "${workspaceRoot}/build/app/main",
         // "target": "./Debug/bin/CHIP8",
         // needed since the execution of main runs from this
         // location

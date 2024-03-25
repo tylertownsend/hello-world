@@ -13,10 +13,11 @@ public:
             {"interval", "5"}
         };
         std::vector<DiagnosticConfig> configs {
-            DiagnosticConfig {"ResourceMonitor",      true, parameters },
-            DiagnosticConfig {"PerformanceMonitor",   true, parameters },
-            DiagnosticConfig {"DependencyChecker",    true, parameters },
-            DiagnosticConfig {"ConfigurationChecker", true, parameters }
+            DiagnosticConfig {"ResourceMonitor",           true, parameters },
+            DiagnosticConfig {"PerformanceMonitor",        true, parameters },
+            DiagnosticConfig {"DependencyChecker",         true, parameters },
+            DiagnosticConfig {"ConfigurationChecker",      true, parameters },
+            DiagnosticConfig {"InternetConnectivityCheck", true, parameters } // comes from the plugin
         };
         // Logic to load and parse the configuration file goes here
         return configs;

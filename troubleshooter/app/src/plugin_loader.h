@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include <filesystem>
 
 #include "diagnostic_system.h"
 #include "diagnostic_plugin.h"
@@ -13,6 +14,9 @@ private:
 public:
     PluginLoader(const std::string& pluginDirectory)
         : pluginDirectory(pluginDirectory) {
+        std::filesystem::path cwd = std::filesystem::current_path();
+        // Print the current working directory
+        std::cout << "Current working directory: " << cwd << std::endl;
     }
 
     void loadPlugins(DiagnosticSystem& diagnosticSystem) {
@@ -30,7 +34,8 @@ public:
                 std::string fullPath = pluginDirectory + "/" + filename;
                 try {
                     // Load the plugin and add it to the diagnostic system
-                    diagnosticSystem.add(std::make_unique<DiagnosticPlugin>(fullPath));
+                    auto plugin = std::make_unique<DiagnosticPlugin>(fullPath);
+                    diagnosticSystem.add(std::move(plugin));
                 } catch (const std::exception& e) {
                     std::cerr << "Failed to load plugin: " << fullPath << " with error: " << e.what() << std::endl;
                 }
