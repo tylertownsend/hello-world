@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "detail": "Create Build Dir",
+      "label": "make dir",
+      "type": "shell",
+      "command": "mkdir",
+      "options": { "cwd": "${cwd}" },
+      "args": [ "-p", "build" ],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "detail": "Run CMake to generate makefile",
+      "label": "cmake",
+      "type": "shell",
+      "command": "cmake",
+      "options": { "cwd": "${cwd}/build" },
+      "args": [
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "'..'"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "dependsOn": "make dir"
+    },
+    {
+      "detail": "Run make to build the project",
+      "label": "make",
+      "type": "shell",
+      "command": "make",
+      "options": { "cwd": "${cwd}/build" },
+      "group": { "kind": "build", "isDefault": true },
+      "dependsOn": "cmake"
+    },
+  ]
+}
