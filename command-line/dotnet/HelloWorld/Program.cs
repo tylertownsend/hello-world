@@ -28,11 +28,62 @@ class Program
         // Setup the command to execute the RunGui method
         rootCommand.SetHandler(() =>
         {
-            RunGui();
+            RunGui2();
         });
 
         // Parse the incoming args and invoke the command
         return rootCommand.InvokeAsync(args).Result;
+    }
+
+    private static void RunGui2()
+    {
+        // Initialize Terminal.Gui
+        Application.Init();
+        var top = Application.Top;
+
+        // Create the window and add any controls here
+        var win = new Window("Hello from Terminal.Gui")
+        {
+            X = 0,
+            Y = 1, // Leave one row for the toplevel menu
+
+            // By using Dim.Fill(), it will automatically resize without manual intervention
+            Width = Dim.Fill(),
+            Height = Dim.Fill()
+        };
+        top.Add(win);
+
+        // Add a simple label
+        var label = new Label("Welcome to your GUI app!")
+        {
+            X = Pos.Center(),
+            Y = Pos.Center()
+        };
+        win.Add(label);
+
+        void NewFile()
+        {
+            MessageBox.Query("New File", "New File Created", "Ok");
+        }
+
+        // Creates a menubar, the item "New" has a help menu.
+        var menu = new MenuBar(new MenuBarItem[] {
+            new MenuBarItem ("_File", new MenuItem [] {
+                new MenuItem ("_New", "Creates new file", NewFile),
+                new MenuItem ("_Close", "", () => { /* close logic */ }),
+                new MenuItem ("_Quit", "", () => { })
+            }),
+            new MenuBarItem ("_Edit", new MenuItem [] {
+                new MenuItem ("_Copy", "", null),
+                new MenuItem ("C_ut", "", null),
+                new MenuItem ("_Paste", "", null)
+            })
+        });
+        // Add both the menu and the label
+        top.Add(menu, label);
+
+        // Create and show the application
+        Application.Run();
     }
 
     private static void RunGui()
