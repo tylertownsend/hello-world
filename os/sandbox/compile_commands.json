@@ -1,0 +1,21 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "--std=c++20",
+            "-I",
+            "include",
+            "-ffreestanding",
+            "-o",
+            "build/kernel/main.o",
+            "src/kernel/main.cpp"
+        ],
+        "includePath": [
+             "${workspaceFolder}/**",
+             "${workspaceFolder}/include/buffalo/**"
+         ]
+        "directory": "/home/tyler/Desktop/projects/github/hello-world/os/sandbox",
+        "file": "src/kernel/main.cpp"
+    }
+]
