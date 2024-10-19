@@ -1,5 +1,8 @@
-ORG  0
+ORG  0x7c00
 BITS 16 ; only assemble in 16-bit mode
+
+CODE_SEG equ gdt_code - gdt_start
+DATA_SEG equ gdt_data - gdt_start
 
 _start:
     jmp short start  ; jump to start label
@@ -7,7 +10,7 @@ _start:
     times 33 db 0
 
 start:
-    jmp 0x7c0:step2; jump to start label
+    jmp 0:step2; jump to start label
 
 step2:
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -17,54 +20,65 @@ step2:
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     cli                ; disable interrupts ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; critical section where we don't want to be interrupted
-    mov ax, 0x7c0      ; set up stack space just after the bootloader
+    mov ax, 0x00       ; set up stack space just after the bootloader
     mov ds, ax         ; set DS to the bootloader segment
     mov es, ax         ; set ES to the bootloader segment
-
-    mov ax, 0x00       ; set up stack pointer
     mov ss, ax         ; set SS to the bootloader segment
     mov sp, 0x7c00     ; set SP to 0x7c00
     sti                ; enable interrupts ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    mov ah, 2 ; READ SECTOR COMMAND
-    mov al, 1 ; NUMBER OF SECTORS TO READ
-    mov ch, 0 ; Cyclinder low eight bits
-    mov cl, 2 ; Read sector two
-    mov dh, 0 ; Head number
-    mov bx, buffer ; Buffer to read to
-    int 0x13 ; BIOS DISK INTERRUPT
-    jc error ; Jump to error if carry flag is set
+.load_protected:
+    cli                   ; disable interrupts ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    lgdt [gdt_descriptor] ; load the GDT
+    mov eax, cr0          ; get the current value of CR0
+    or eax, 0x1           ; set the protected mode bit
+    mov cr0, eax          ; write the new value of CR0
+    jmp CODE_SEG:load32   ; jump to the next instruction in 32-bit mode
 
-    mov si, buffer
-    call print
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; GDT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+gdt_start:
+gdt_null:
+    dd 0x0
+    dd 0x0
 
-    jmp $              ; infinite loop
+; offset 0x08
+gdt_code:        ; code segment descriptor
+    dw 0xffff    ; segment limit (bits 0-15)
+    dw 0x0       ; base first 0-15 bits
+    db 0x0       ; base 16-23 bits
+    db 0x9a      ; access byte
+    db 11001111b ; high 4 bit flags and the low 4 bit flags
+    db 0x0       ; base 24-31 bits
 
-  error:
-    mov si, error_message
-    call print
-    jmp $
+; offset 0x10
+gdt_data:        ; code segment descriptor
+    dw 0xffff    ; segment limit (bits 0-15)
+    dw 0x0       ; base first 0-15 bits
+    db 0x0       ; base 16-23 bits
+    db 0x92      ; access byte
+    db 11001111b ; high 4 bit flags and the low 4 bit flags
+    db 0x0       ; base 24-31 bits
 
-print:
-    mov bx, 0          ; set video page to 0
-.loop:
-    lodsb              ; load next byte from SI into AL register then increment SI register
-    cmp al, 0          ; check if AL is null
-    je .done           ; if null, we are done
-    call print_char    ; print character
-    jmp .loop          ; repeat
-.done:
-    ret
+gdt_end:
 
-print_char:
-    mov ah, 0eh        ; teletype output
-    int 0x10           ; call BIOS interrupt
-    ret
-error_message: db 'Error reading disk', 0
+gdt_descriptor:
+    dw gdt_end - gdt_start - 1 ; size of GDT
+    dd gdt_start               ; address of GDT
+
+[BITS 32]
+load32:
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
+    mov ebp, 0x00200000
+    mov esp, ebp
+    jmp $ ; infinite loop
 
 ; boot signature 55aa on last two bytes of 512-byte boot sector
 times  510 - ($ - $$) db 0
 dw 0xAA55 ; intel machines are little-endian
-
-buffer:
-
