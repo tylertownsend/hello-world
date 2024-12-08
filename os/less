@@ -1,0 +1,1000 @@
+ 1005  ls
+ 1006  cd ..
+ 1007  ls
+ 1008  cd
+ 1009  cd Desktop/
+ 1010  clear
+ 1011  ls
+ 1012  cd projects/
+ 1013  clear
+ 1014  ls
+ 1015  clear
+ 1016  ls
+ 1017  cd ml_playground/
+ 1018  clear
+ 1019  git status
+ 1020  clear
+ 1021  ls
+ 1022  cd transformers/
+ 1023  ls
+ 1024  cd ../
+ 1025  ls
+ 1026  cd github/
+ 1027  ls
+ 1028  cd ..
+ 1029  ls
+ 1030  cd sandbox/
+ 1031  ls
+ 1032  cd ..
+ 1033  ls
+ 1034  cd github/
+ 1035  clear
+ 1036  ls
+ 1037  cd ai_playground/
+ 1038  clear
+ 1039  ls
+ 1040  cd ml/
+ 1041  ls
+ 1042  git status
+ 1043  git diff
+ 1044  cd clustering/
+ 1045  clear
+ 1046  ls
+ 1047  cd ..
+ 1048  clear
+ 1049  ls
+ 1050  mkdir gpt
+ 1051  cldear
+ 1052  clear
+ 1053  ls
+ 1054  cd gpt/
+ 1055  code-insiders ../../
+ 1056  sudo apt update
+ 1057  sudo apt list --upradable
+ 1058  sudo apt list --upgradable
+ 1059  sudo apt upgrade
+ 1060  code-insiders ../../
+ 1061  reboot
+ 1062  kaiti chat
+ 1063  clear
+ 1064  ls
+ 1065  mv ../../../../Downloads/
+ 1066  clear
+ 1067  ls
+ 1068  clear
+ 1069  ls
+ 1070  mv ../../../../Downloads/names.txt .
+ 1071  /bin/python3 /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+ 1072  /bin/python3 /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.8.1/python_files/printEnvVariablesToFile.py /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.8.1/python_files/deactivate/bash/envVars.txt
+ 1073  kaiti chat
+ 1074  clear
+ 1075  ls
+ 1076  clear
+ 1077  ls
+ 1078  /bin/python3 /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.8.1/python_files/printEnvVariablesToFile.py /home/tyler/.vscode-insiders/extensions/ms-python.python-2024.8.1/python_files/deactivate/bash/envVars.txt
+ 1079  cheese
+ 1080  sudo apt install cheese
+ 1081  lsusb
+ 1082  cheese
+ 1083  ls -l /dev/video0
+ 1084  v4lsloopback
+ 1085  dmesg | grep -i usb
+ 1086  reboot
+ 1087  top
+ 1088  htop
+ 1089  clear
+ 1090  kaiti chat
+ 1091  clear
+ 1092  :wq
+ 1093  clear
+ 1094  cd Desktop/
+ 1095  ls
+ 1096  cd tools/
+ 1097  clear
+ 1098  ls
+ 1099  cd armips/
+ 1100  clear
+ 1101  ls
+ 1102  clear
+ 1103  ls
+ 1104  cd build/
+ 1105  clear
+ 1106  ls
+ 1107  realpath armips
+ 1108  cd ../../
+ 1109  clear
+ 1110  ls
+ 1111  cd ../
+ 1112  nvim
+ 1113  clear
+ 1114  nvm
+ 1115  nvim
+ 1116  clear
+ 1117  ls
+ 1118  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+ 1119  sudo apt update
+ 1120  sudo apt install make gcc ripgrep unzip git xclip neovim
+ 1121  apt --fix-broken install
+ 1122  sudo apt --fix-broken install
+ 1123  nvim
+ 1124  clear
+ 1125  ls
+ 1126  source ~/.bashrc
+ 1127  nvim
+ 1128  neovim
+ 1129  clear
+ 1130  ls
+ 1131  cd projects/
+ 1132  clear
+ 1133  ls
+ 1134  cd github/
+ 1135  claer
+ 1136  clear
+ 1137  ls
+ 1138  git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+ 1139  nvim
+ 1140  clear
+ 1141  ls
+ 1142  sudo apt remove nvim
+ 1143  sudo apt uninstall nvim
+ 1144  clear
+ 1145  nvim
+ 1146  which nvim
+ 1147  sudo apt-get remove auto-remove nvim
+ 1148  sudo apt-get remove --auto-remove nvim
+ 1149  sudo apt-get remove --auto-remove neovim
+ 1150  nvim
+ 1151  vim ~/.bashrc
+ 1152  nvim
+ 1153  hel
+ 1154  which nvim
+ 1155  clear
+ 1156  source ~/.bashrc
+ 1157  nvim
+ 1158  clear
+ 1159  git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+ 1160  rm ~/.config/nvim/
+ 1161  rm ~/.config/nvim/ -r
+ 1162  clear
+ 1163  git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+ 1164  nvim
+ 1165  clear
+ 1166  ~/.bashrc
+ 1167  source ~/.bashrc
+ 1168  nvim
+ 1169  neovim
+ 1170  clear
+ 1171  ripgrep
+ 1172  nvim
+ 1173  rm ~/.config/nvim/ -r
+ 1174  clear
+ 1175  git clone https://github.com/tylertownsend/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+ 1176  nvim
+ 1177  sudo apt install make gcc ripgrep unzip git xclip neovim
+ 1178  nvim
+ 1179  nvim --version
+ 1180  neovim --version
+ 1181  sudo apt update
+ 1182  sudo apt install neovim
+ 1183  nvim
+ 1184  nvim --headless +Lazy! check
+ 1185  clear
+ 1186  vim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua 
+ 1187  nvim
+ 1188  vim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua 
+ 1189  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua
+ 1190  nvim ~/.config/nvim/init.lua 
+ 1191  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua
+ 1192  npm install -g vim-language-server
+ 1193  npm install -g npm@10.8.3
+ 1194  clear
+ 1195  nvm
+ 1196  clear
+ 1197  nvm --help
+ 1198  nvm list
+ 1199  nvm install 20
+ 1200  clear
+ 1201  npm
+ 1202  clear
+ 1203  nvim ~/.config/nvim/init.lua 
+ 1204  sudo apt install luarocks
+ 1205  luarocks install lua 5.1
+ 1206  sudo luarocks install lua 5.1
+ 1207  lua --version
+ 1208  clear
+ 1209  nvim ~/.config/nvim/init.lua 
+ 1210  dotnet project init ai_infra 
+ 1211  dotnet --help
+ 1212  dotnet new --help
+ 1213  dotnet new project ai_infra
+ 1214  dotnet new ai_infra
+ 1215  kaiti chat
+ 1216  dotnet new console -o ai_infra
+ 1217  cd ai_infra/
+ 1218  clear
+ 1219  ls
+ 1220  mkdir controllers
+ 1221  mkdir models
+ 1222  mkdir data
+ 1223  cp data/ controllers/ models/ ./project_management/
+ 1224  cp data/ controllers/ models/ ./project_management/ -r
+ 1225  cp data/ controllers/ models/ ./task_management/ -r
+ 1226  cp data/ controllers/ models/ ./scheduling/ -r
+ 1227  cp data/ controllers/ models/ ./user_management/ -r
+ 1228  kaiti chat
+ 1229  dotnet apdd package Microsoft.Extensions
+ 1230  dotnet add package Microsoft.Extensions
+ 1231  dotnet apdd package Microsoft.AspNetCore
+ 1232  dotnet add package Microsoft.AspNetCore
+ 1233  dotnet add package Microsoft.EntityFrameworkCore
+ 1234  dotnet add package Microsoft.EntityFramework
+ 1235  dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+ 1236  clear
+ 1237  ls
+ 1238  dotnet new webapp --output temp
+ 1239  cd temp/
+ 1240  clear
+ 1241  ls
+ 1242  mv . ..
+ 1243  clear
+ 1244  mv ./* ../
+ 1245  dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+ 1246  dotnet add package Microsoft.EntityFramework
+ 1247  cd ../
+ 1248  dotnet add package Microsoft.EntityFramework
+ 1249  clear
+ 1250  ls
+ 1251  clear
+ 1252  ls
+ 1253  cd ~/Desktop/
+ 1254  clear
+ 1255  ls
+ 1256  cd projects/
+ 1257  ls
+ 1258  clear
+ 1259  ls
+ 1260  cd github/
+ 1261  clear
+ 1262  ls
+ 1263  cd ai_assistant_service/
+ 1264  clear
+ 1265  ls
+ 1266  cd ai_infra/
+ 1267  dotnet install EntityFramework
+ 1268  dotnet add Package EntityFramework
+ 1269  dotnet add package EntityFramework
+ 1270  clear
+ 1271  dotnet remove package EntityFramework
+ 1272  dotnet add package EntityFrameworkCore
+ 1273  dotnet add package EntityFrameworkCore.SqlServerLite
+ 1274  dotnet add package Microsoft.EntityFrameworkCore --version 8.0.8
+ 1275  dotnet add package Microsoft.EntityFrameworkCore --version 7.0.20
+ 1276  dotnet add package Swashbuckle.AspNetCore --version 6.6.2
+ 1277  dotnet add package  Microsoft.EntityFrameworkCore.InMemory
+ 1278  dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 7.0.20
+ 1279  dotnet build
+ 1280  dotnet run
+ 1281  dotnet clean
+ 1282  dotnet build
+ 1283  dotnet run
+ 1284  dotnet run Project
+ 1285  clear
+ 1286  git status
+ 1287  cd ..
+ 1288  ls
+ 1289  git init
+ 1290  clear
+ 1291  ls
+ 1292  git status
+ 1293  vim .gitignore
+ 1294  git add .gitignore 
+ 1295  git commit -m 'Init'
+ 1296  clear
+ 1297  ls
+ 1298  vim .gitignore 
+ 1299  git add .gitignore 
+ 1300  git commit --amend
+ 1301  cd AIInfra/
+ 1302  git status
+ 1303  clear
+ 1304  ls
+ 1305  vim .gitignore
+ 1306  git add .gitignore 
+ 1307  git commit --amend
+ 1308  git status
+ 1309  git add .
+ 1310  cd ../
+ 1311  git add .
+ 1312  git commit --amend
+ 1313  clear
+ 1314  cd ../../
+ 1315  cd ../
+ 1316  clear
+ 1317  ls
+ 1318  cd github/
+ 1319  clear
+ 1320  ls
+ 1321  mkdir ai_assistant_service
+ 1322  clear
+ 1323  code-insiders ai_assistant_service/
+ 1324  clear
+ 1325  nvim ~/.local/share/nvim/
+ 1326  clear
+ 1327  ls
+ 1328  nvim ~/.config/nvim/init.lua 
+ 1329  nvim ~/.config/nvim/init.lua
+ 1330  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua 
+ 1331  nvim
+ 1332  clear
+ 1333  nvim ~/.config/nvim/init.lua
+ 1334  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua 
+ 1335  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua
+ 1336  clear
+ 1337  ls
+ 1338  rm ~/.config/nvim/ -r
+ 1339  rm ~/.local/share/nvim/ -r
+ 1340  rm ~/.local/share/nvim/ -rf
+ 1341  clear
+ 1342  cd Desktop/
+ 1343  cd projects/
+ 1344  cd github/
+ 1345  clear
+ 1346  ls
+ 1347  nvim --version
+ 1348  nvim -V1 -v
+ 1349  sudo apt update
+ 1350  E: The repository 'https://packages.lunarg.com/vulkan focal Release' no longer has a Release file.
+ 1351  N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+ 1352  N: See apt-secure(8) manpage for repository creation and user configuration details.
+ 1353  sudo add-apt-repository --remove 'https://packages.lunarg.com/vulkan'
+ 1354  sudo apt update
+ 1355  $ sudo apt-get install ripgrep
+ 1356  sudo apt-get install ripgrep
+ 1357  nvim
+ 1358  sudo nvim /etc/apt/sources.list
+ 1359  sudo apt udpate
+ 1360  clear
+ 1361  sudo apt remove neovim
+ 1362  sudo add-apt-repository -r ppa:neovim-ppa/unstable -y
+ 1363  sudo add-apt-repository -r 'https://packages.lunarg.com/vulkan'
+ 1364  sudo apt update
+ 1365  nvim
+ 1366  source ~/.bashrc
+ 1367  sudo apt update
+ 1368  sudo software-properties-gtk
+ 1369  clear
+ 1370  ls /etc/apt/sources.list.d/
+ 1371  sudo rm /etc/apt/sources.list.d/lunarg-vulkan-focal.list
+ 1372  sudo rm /etc/apt/sources.list.d/lunarg-vulkan-focal.list.save 
+ 1373  sudo rm /etc/apt/sources.list.d/neovim-ppa-ubuntu-unstable-focal.list
+ 1374  sudo rm /etc/apt/sources.list.d/neovim-ppa-ubuntu-unstable-focal.list.save 
+ 1375  ls /etc/apt/sources.list.d/
+ 1376  clear
+ 1377  sudo apt update
+ 1378  clear
+ 1379  neovim
+ 1380  source ~/.bashrc
+ 1381  nvim
+ 1382  snap info nvim
+ 1383  sudo apt-get install software-properties-common
+ 1384  sudo add-apt-repository ppa:neovim-ppa/stable
+ 1385  sudo apt update
+ 1386  sudo apt-get install neovim
+ 1387  sudo apt-get install -f
+ 1388  sudo apt-get -u dist-upgrade
+ 1389  sudo apt-get clean
+ 1390  sudo apt-get autoremove
+ 1391  sudo apt-get purge neovim
+ 1392  sudo apt-get install neovim
+ 1393  git clone https://github.com/tylertownsend/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+ 1394  clear
+ 1395  git status
+ 1396  cd ~/.config/
+ 1397  clear
+ 1398  ls
+ 1399  cd nvim/
+ 1400  clear
+ 1401  ls
+ 1402  git status
+ 1403  clear
+ 1404  ls
+ 1405  ls -als
+ 1406  nvim
+ 1407  clear
+ 1408  nvim --version
+ 1409  sudo apt-get purge neovim
+ 1410  source ~/.bashrc
+ 1411  nvim
+ 1412  sudo snap install nvim
+ 1413  clear
+ 1414  ls
+ 1415  sudo rm /etc/apt/sources.list.d/neovim-ppa-ubuntu-stable-focal.list 
+ 1416  sudo apt update
+ 1417  clear
+ 1418  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+ 1419  sudo apt update
+ 1420  sudo apt install neovim=0.10.0
+ 1421  apt-cache madison neovim
+ 1422  clear
+ 1423  ls
+ 1424  apt-cache madison neovim
+ 1425  clear
+ 1426  ls
+ 1427  sudo apt update
+ 1428  nvm --version
+ 1429  nvim --version
+ 1430  sudo apt install neovim=0.10.0
+ 1431  sudo apt install neovim
+ 1432  nvim
+ 1433  nvim ~/.local/share/nvim/lazy/mini.nvim/lua/mini/statusline.lua 
+ 1434  clear
+ 1435  nvim
+ 1436  clear
+ 1437  bluetoothctl
+ 1438  exit
+ 1439  neovim
+ 1440  :q!
+ 1441  exit
+ 1442  neovim
+ 1443  eovim
+ 1444  nvim
+ 1445  echo "Windo1"
+ 1446  clear
+ 1447  echo 0
+ 1448  :q!
+ 1449  exit
+ 1450  eixt
+ 1451  exit
+ 1452  :q!
+ 1453  exit
+ 1454  tmux source tmux.conf 
+ 1455  exit
+ 1456  clear
+ 1457  exit
+ 1458  vim
+ 1459  vim hello.c
+ 1460  clear
+ 1461  ls
+ 1462  :q!
+ 1463  exit
+ 1464  tumx source ~/.config/tmux/tmux.conf 
+ 1465  tmux source ~/.config/tmux/tmux.conf 
+ 1466  vim ~/.config/tmux/tmux.conf 
+ 1467  tumx source ~/.config/tmux/tmux.conf 
+ 1468  tmux source ~/.config/tmux/tmux.conf
+ 1469  clear
+ 1470  kaiti chat
+ 1471  vim \$PROJECts
+ 1472  vim \$PROJECTS
+ 1473  vim $PROJECTS
+ 1474  code-insiders $PROJECTS/github/hello-world/os/
+ 1475  clear
+ 1476  exit
+ 1477  bluetoothctl --help
+ 1478  bluetoothctl devices
+ 1479  clear
+ 1480  bluetoothctl devices | grep Device | awk `{print $2}`
+ 1481  awk
+ 1482  bluetoothctl devices | grep Device | awk '{print $2}'
+ 1483  bluetoothctl devices | grep Device | awk '{print $2}' | xargs -I {}
+ 1484  bluetoothctl devices | grep Device | awk '{print $2}' | xargs -I {} bluetoothctl remove {}
+ 1485  clear
+ 1486  bluetoothctl
+ 1487  clear
+ 1488  bluetoothctl devices
+ 1489  bluetoothctl devices | grep Device | awk '{print $2}' | xargs -I {} bluetoothctl remove {}
+ 1490  clear
+ 1491  nvim
+ 1492  nvim ~/.config/nvim/init.lua 
+ 1493  kaiti chat
+ 1494  nvim ~/.bashrc
+ 1495  source ~/.bashrc
+ 1496  nvim ~/.bashrc
+ 1497  source ~/.bashrc
+ 1498  nvim ~/.bashrc
+ 1499  source ~/.bashrc
+ 1500  cd $NVIMCONFIG
+ 1501  cd $HOME
+ 1502  clear
+ 1503  git status
+ 1504  clear
+ 1505  ls
+ 1506  clear
+ 1507  cd Desktop/
+ 1508  clear
+ 1509  vim $NVIMCONFIG/init.lua
+ 1510  nvim $NVIMCONFIG/init.lua
+ 1511  cd projects/sandbox/
+ 1512  clear
+ 1513  ls
+ 1514  cd pikuma/
+ 1515  clear
+ 1516  ls
+ 1517  cd 2d_game_engine/
+ 1518  clear
+ 1519  ls
+ 1520  nvim
+ 1521  cd $NVIMCONFIG
+ 1522  clear
+ 1523  ls
+ 1524  nvim
+ 1525  sudo apt install clangd
+ 1526  clear
+ 1527  ls
+ 1528  clangd --version
+ 1529  clear
+ 1530  ls
+ 1531  clear
+ 1532  ls
+ 1533  cd lua/
+ 1534  clear
+ 1535  ls
+ 1536  cd custom/
+ 1537  ls
+ 1538  nvim plugins/init.lua 
+ 1539  nvim ../../
+ 1540  clear
+ 1541  git diff
+ 1542  clear
+ 1543  ls
+ 1544  cd ../../
+ 1545  nvim init.lua 
+ 1546  nvim init.lua
+ 1547  git status
+ 1548  git add init.lua
+ 1549  clear
+ 1550  git status
+ 1551  git commit -m 'Enable lua vim api'
+ 1552  clear
+ 1553  git push
+ 1554  kaiti chat
+ 1555  giat config --global credential.helper store
+ 1556  gitt config --global credential.helper store
+ 1557  git config --global credential.helper store
+ 1558  clear
+ 1559  nvim init.lua 
+ 1560  vim ~/.bashrc
+ 1561  nvim ~/.bashrc
+ 1562  source ~/.bashrc
+ 1563  refresh
+ 1564  sycnterm
+ 1565  syncterm
+ 1566  nvim ~/.bashrc
+ 1567  source ~/.bashrc
+ 1568  syncterm
+ 1569  clear
+ 1570  cd $PROJECTS
+ 1571  clear
+ 1572  cp
+ 1573  cdp
+ 1574  vim ~/.bashrc
+ 1575  syncterm
+ 1576  vim ~/.bashrc
+ 1577  syncterm
+ 1578  clear
+ 1579  ls
+ 1580  cd sandbox/
+ 1581  ls
+ 1582  cd pikuma/
+ 1583  clear
+ 1584  ls
+ 1585  cd 2d_game_engine/
+ 1586  ls
+ 1587  vim .
+ 1588  vim ./src/Game/Game.h
+ 1589  nvim \$NVIMCONFIG
+ 1590  nvim $NVIMCONFIG
+ 1591  ls
+ 1592  cd src/
+ 1593  ls
+ 1594  cd ../
+ 1595  ls
+ 1596  cd include/
+ 1597  clear
+ 1598  ls
+ 1599  cd ../
+ 1600  cd libs/
+ 1601  ls
+ 1602  cd sol/
+ 1603  ls
+ 1604  cd ../../
+ 1605  clear
+ 1606  ls
+ 1607  clear
+ 1608  ls
+ 1609  cd src/
+ 1610  clear
+ 1611  ls
+ 1612  cd ../
+ 1613  nvim $NVIMCONFIG/init.lua
+ 1614  nvim
+ 1615  vim .
+ 1616  clear
+ 1617  ls
+ 1618  vim compile_flags.txt
+ 1619  vim .
+ 1620  vim Makefile 
+ 1621  make clean
+ 1622  make build
+ 1623  make run
+ 1624  clear
+ 1625  ls
+ 1626  make clean
+ 1627  git status
+ 1628  git diff
+ 1629  clear
+ 1630  ls
+ 1631  cd build/
+ 1632  ls
+ 1633  clear
+ 1634  ls
+ 1635  ./GameEngine 
+ 1636  clear
+ 1637  ../
+ 1638  clear
+ 1639  ls
+ 1640  cd ../
+ 1641  clear
+ 1642  ls
+ 1643  make clean
+ 1644  vim Makefile 
+ 1645  rm -rf build/
+ 1646  clear
+ 1647  ls
+ 1648  make
+ 1649  cd include/
+ 1650  clear
+ 1651  ls
+ 1652  cd engine/
+ 1653  clear
+ 1654  ls
+ 1655  cd ../../
+ 1656  clear
+ 1657  ls
+ 1658  cd ../
+ 1659  clea
+ 1660  ls
+ 1661  clea
+ 1662  ls
+ 1663  cd 2d_game_engine/
+ 1664  clear
+ 1665  ls
+ 1666  make
+ 1667  clear
+ 1668  ls
+ 1669  cd ../
+ 1670  clear
+ 1671  ls
+ 1672  cd 3d_graphics/
+ 1673  clear
+ 1674  ls
+ 1675  make
+ 1676  clear
+ 1677  ls
+ 1678  ./renderer 
+ 1679  aclear
+ 1680  clear
+ 1681  ls
+ 1682  cd ../
+ 1683  clear
+ 1684  ls
+ 1685  cd ../
+ 1686  clear
+ 1687  ls
+ 1688  cd github/
+ 1689  clear
+ 1690  ls
+ 1691  cd hello-world/
+ 1692  clear
+ 1693  ls
+ 1694  cd concurrency/
+ 1695  clear
+ 1696  ls
+ 1697  cd ../
+ 1698  ls
+ 1699  cd linux/
+ 1700  ls
+ 1701  cd ../
+ 1702  ls
+ 1703  cd mpi/
+ 1704  ls
+ 1705  cd ../
+ 1706  cd stream/
+ 1707  ls
+ 1708  cd ../
+ 1709  ls
+ 1710  cd mpi/
+ 1711  ls
+ 1712  vim matrix_mult.cpp 
+ 1713  tmux
+ 1714  clear
+ 1715  cd $HOME
+ 1716  cd .config/
+ 1717  ls
+ 1718  mkdir tmux
+ 1719  clear
+ 1720  ls
+ 1721  tmux --version
+ 1722  tmux -version
+ 1723  tmux --help
+ 1724  clear
+ 1725  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ 1726  clear
+ 1727  ls
+ 1728  ls -als
+ 1729  cd ../
+ 1730  ls
+ 1731  ls -als
+ 1732  clear
+ 1733  cd .tmux/
+ 1734  ls
+ 1735  cd plugins/
+ 1736  ls
+ 1737  cd tpm/
+ 1738  ls
+ 1739  clear
+ 1740  ls
+ 1741  cd ~/.config/tmux/
+ 1742  ls
+ 1743  tmux.conf
+ 1744  nvim tmux.conf
+ 1745  tmux
+ 1746  tmux source ~/.config/tmux/tmux.conf 
+ 1747  tmux
+ 1748  clear
+ 1749  ls
+ 1750  cd ../../
+ 1751  clear
+ 1752  vim ~/.config/tmux/tmux.conf 
+ 1753  tmux
+ 1754  source ~/.bashrc
+ 1755  tmux
+ 1756  clear
+ 1757  ls
+ 1758  clear
+ 1759  ls
+ 1760  vim ~/.config/
+ 1761  rm -rf ~/.local/share/nvim/
+ 1762  rm -rf ~/.config/nvim/
+ 1763  git clone -b v2.0 https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+ 1764  nvim
+ 1765  clear
+ 1766  nvim
+ 1767  cd Downloads/
+ 1768  ls
+ 1769  unzip UbuntuSans.zip 
+ 1770  ls
+ 1771  rm -rf *
+ 1772  ls
+ 1773  clear
+ 1774  ls
+ 1775  unzip --help
+ 1776  unzip UbuntuSans.zip -d UbuntuSans
+ 1777  ls
+ 1778  cd UbuntuSans/
+ 1779  ls
+ 1780  clear
+ 1781  ls /usr/share/fonts
+ 1782  sudo mkdir /usr/share/fonts/ubuntu-sans
+ 1783  clear
+ 1784  sudo cp *.ttf  /usr/share/fonts/ubuntu-sans
+ 1785  sudo fc-cache -fv
+ 1786  clear
+ 1787  nvim ~/.local/share/nvim/lazy/nvim-web-devicons/
+ 1788  clear
+ 1789  exit
+ 1790  exi:exit
+ 1791  exit
+ 1792  clear
+ 1793  ls
+ 1794  gcc
+ 1795  clear
+ 1796  nvim --version
+ 1797  node --version
+ 1798  clear
+ 1799  source ~/.bashrc
+ 1800  exit
+ 1801  :q!
+ 1802  g++ --std=c++17 --debug hello.cpp -o main
+ 1803  make
+ 1804  clear
+ 1805  ls
+ 1806  cd scripts/
+ 1807  ls
+ 1808  vim build.sh 
+ 1809  clear
+ 1810  ls
+ 1811  cd ../
+ 1812  ls
+ 1813  cd buildenv/
+ 1814  ls
+ 1815  nvim setup.sh 
+ 1816  clear
+ 1817  cd ../
+ 1818  clear
+ 1819  ls
+ 1820  cd sandbox/
+ 1821  clear
+ 1822  ls
+ 1823  cd src/
+ 1824  ls
+ 1825  cd ../
+ 1826  bash scripts/build.sh 
+ 1827  clear
+ 1828  cd ../
+ 1829  clear
+ 1830  ls
+ 1831  mkdir
+ 1832  bear
+ 1833  sudo apt install bear
+ 1834  clear
+ 1835  bear make
+ 1836  ls
+ 1837  vim ~/Desktop/projects/github/hello-world/os/
+ 1838  nvim ~/Desktop/projects/github/hello-world/os/
+ 1839  nvim ~/Desktop/projects/github/hello-world/os/.
+ 1840  cd ~/Desktop/projects/github/hello-world/os/.
+ 1841  nvim
+ 1842  clear
+ 1843  nvim $NVIMHOME
+ 1844  $NVIM
+ 1845  echo $NVIM
+ 1846  echo $NVIMHOME
+ 1847  echo $NVIMCONFIG
+ 1848  nvim $NVIMCONFIG
+ 1849  ~/.local/share/nvim/mason/bin/clangd --style GNU --dump-config > .clang-format
+ 1850  ~/.local/share/nvim/mason/bin/clangd --style Allman --dump-config > .clang-format
+ 1851  nvim
+ 1852  ~/.local/share/nvim/mason/bin/clang-format --style Allman --dump-config > .clang-format
+ 1853  ~/.local/share/nvim/mason/bin/clang-format --style --help
+ 1854  ~/.local/share/nvim/mason/bin/clang-format --help
+ 1855  ~/.local/share/nvim/mason/bin/clang-format --style LLVM --dump-config > .clang-format
+ 1856  ~/.local/share/nvim/mason/bin/clang-format --style Microsoft --dump-config > .clang-format
+ 1857  ~/.local/share/nvim/mason/bin/clang-format --style GNU --dump-config > .clang-format
+ 1858  ~/.local/share/nvim/mason/bin/clang-format --style Microsoft --dump-config > .clang-format
+ 1859  ls
+ 1860  ~/.local/share/nvim/mason/bin/clang-format --style Microsoft --dump-config > .clang-format
+ 1861  clear
+ 1862  ls
+ 1863  nvim
+ 1864  clear
+ 1865  nvim
+ 1866  cd sandbox/
+ 1867  clear
+ 1868  ls
+ 1869  nvim
+ 1870  clear
+ 1871  nvim
+ 1872  cd ../
+ 1873  clear
+ 1874  ls
+ 1875  nvim
+ 1876  nvim
+ 1877  clear
+ 1878  nvim
+ 1879  cd ~/.config/nvim/
+ 1880  ls
+ 1881  nvim
+ 1882  git clone https://github.com/github/copilot.vim.git   ~/.config/nvim/pack/github/start/copilot.vim
+ 1883  nvim
+ 1884  clear
+ 1885  nvim
+ 1886  vim
+ 1887  clear
+ 1888  nvim
+ 1889  clear
+ 1890  nvim
+ 1891  ~/.local/share/nvim/mason/bin/clang-format --style Microsoft --dump-config > .clang-format
+ 1892  nvim
+ 1893  ~/.local/share/nvim/mason/bin/clang-format --style LLVM --dump-config > .clang-format
+ 1894  nvim
+ 1895  ~/.local/share/nvim/mason/bin/clang-format --help
+ 1896  ~/.local/share/nvim/mason/bin/clang-format --style Mozilla --dump-config > .clang-format
+ 1897  nvim
+ 1898  git status
+ 1899  git add .
+ 1900  git commit -m 'Initial cpp setup; github copilot'
+ 1901  clear
+ 1902  git status
+ 1903  git branch
+ 1904  nvim
+ 1905  clear
+ 1906  nvim
+ 1907  sudo apt install hexcurse
+ 1908  clear
+ 1909  hexcurse
+ 1910  sudoo apt install bless
+ 1911  sudo apt install bless
+ 1912  clear
+ 1913  bless ./boot.bin
+ 1914  make
+ 1915  bless ./boot.bin
+ 1916  r
+ 1917  clear
+ 1918  sudo apt install hexcurse
+ 1919  clear
+ 1920  ls
+ 1921  mkdir sandbox
+ 1922  ls
+ 1923  mv * sandbox/
+ 1924  clear
+ 1925  ls
+ 1926  cd build/
+ 1927  ls
+ 1928  cd ../
+ 1929  ls
+ 1930  cd dist/
+ 1931  ls
+ 1932  cd ..
+ 1933  clear
+ 1934  ls
+ 1935  cd sandbox/
+ 1936  ls
+ 1937  clear
+ 1938  ls
+ 1939  cd ../
+ 1940  clear
+ 1941  ls
+ 1942  clear
+ 1943  qemu-system-x86_64
+ 1944  ls
+ 1945  cd sandbox/
+ 1946  ls
+ 1947  clear
+ 1948  ls
+ 1949  ls -als
+ 1950  cd ..
+ 1951  ls -als
+ 1952  git status
+ 1953  git add ../
+ 1954  git status
+ 1955  git commit -m 'Refactored os code;
+ 1956  '
+ 1957  clear
+ 1958  gait push
+ 1959  git push
+ 1960  clear
+ 1961  nasm -f bin boot.asm -o ./boot.bin
+ 1962  nasm -f bin ./boot.asm -o ./boot.bin
+ 1963  ndlnasm ./boot.bin
+ 1964  nolnasm ./boot.bin
+ 1965  ndasm ./boot.bin 
+ 1966  ndlsasm
+ 1967  ndsasm
+ 1968  ndisasm
+ 1969  ndisasm ./boot.bin 
+ 1970  nasm -f bin ./boot.asm -o ./boot.bin
+ 1971  ndisasm ./boot.bin 
+ 1972  nasm -f bin ./boot.asm -o ./boot.bin
+ 1973  qemu-system-x86_64  -hda ./boot.bin
+ 1974  nasm -f bin ./boot.asm -o ./boot.bin
+ 1975  qemu-system-x86_64  -hda ./boot.bin
+ 1976  nasm -f bin ./boot.asm -o ./boot.bin
+ 1977  qemu-system-x86_64  -hda ./boot.bin
+ 1978  git status
+ 1979  git add .
+ 1980  git commit -m 'Hello world for boot.asm'
+ 1981  clear
+ 1982  nasm -f bin ./boot.asm -o ./boot.bin
+ 1983  qemu-system-x86_64  -hda ./boot.bin
+ 1984  nasm -f bin ./boot.asm -o ./boot.bin
+ 1985  qemu-system-x86_64  -hda ./boot.bin
+ 1986  nasm -f bin ./boot.asm -o ./boot.bin
+ 1987  qemu-system-x86_64  -hda ./boot.bin
+ 1988  nasm -f bin ./boot.asm -o ./boot.bin
+ 1989  qemu-system-x86_64  -hda ./boot.bin
+ 1990  nasm -f bin ./boot.asm -o ./boot.bin
+ 1991  qemu-system-x86_64  -hda ./boot.bin
+ 1992  nasm -f bin ./boot.asm -o ./boot.bin
+ 1993  qemu-system-x86_64  -hda ./boot.bin
+ 1994  :q!
+ 1995  clear
+ 1996  exit
+ 1997  clear
+ 1998  jk
+ 1999  exit
+ 2000  ./build.sh
+ 2001  mkdir build
+ 2002  ./build.sh
+ 2003  history
+ 2004  history > less

@@ -38,6 +38,17 @@ step2:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; GDT
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; The Global Descriptor Table (GDT) is a data structure used by 
+; Intel x86-family processors starting with the 80286 in order to define the 
+; characteristics of the various memory areas used during program execution,
+; including the base address, the size, and access privileges i e 
+; executability and writeability.
+;
+; This allows for protected mode enablement, task switching, and memory protection
+; with virtual memory.
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 gdt_start:
 gdt_null:
     dd 0x0
@@ -77,6 +88,15 @@ load32:
     mov ss, ax
     mov ebp, 0x00200000
     mov esp, ebp
+
+    ;--------------------------------------------------------------------------
+    ; enable the A20 line
+    ;--------------------------------------------------------------------------
+    ; 
+    in al, 0x92  ; Reads the value from the I/O port 0x92 into the al register
+    or al, 2     ; Set second bit of al register (A20 enablement bit)
+    out 0x92, al ; Writes modified balue back to I/O port 0x92
+
     jmp $ ; infinite loop
 
 ; boot signature 55aa on last two bytes of 512-byte boot sector
